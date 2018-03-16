@@ -1,0 +1,88 @@
+
+// -----theme color----
+$color-theme: #ff8963;
+$color-gray: #898989;
+$color-red: #f74c31;
+
+$border-color: #e1e1e1;
+$bgk-theme: -webkit-linear-gradient(top, #ffb158, #ff8963);
+
+$lg-font: 16px;
+$md-font: 12px;
+$sm-font: 10px;
+// ----margin----
+$gauge: 10px;
+$bgMargin: 16px;
+
+@mixin box {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+@mixin height($bs:44px){
+    height:$bs;
+    line-height:$bs;
+}
+@mixin semicircle($bs:30px){
+    @include height($bs);
+    border-radius: $bs / 2;
+    text-align:center;
+} 
+@mixin circle($bs:24px){
+    width: $bs;
+    @include height($bs);
+    border-radius: $bs;
+    text-align:center;
+}
+@mixin btnRadius($bs:40px){
+    @include height($bs);
+    border-radius: 4px;
+    text-align:center; 
+    display: block;
+}
+@mixin btnBorder($bs:34px,$borderColor:#ccc){
+    @include btnRadius($bs);
+    border: 1px solid $borderColor;
+    color: #666;
+    padding: 0 10px;
+    box-sizing: border-box; 
+}
+
+%fixed-layout {
+    position:fixed;
+    left:0;
+    width: 100%;
+    z-index: 5; 
+}
+
+%fixed-body {
+    @extend %fixed-layout;
+    top: 0;
+    bottom: 0;
+}
+%fixed-bottom {
+    @extend %fixed-layout;
+    bottom: 0;
+}
+%fixed-top {
+    @extend %fixed-layout;
+    top: 0;
+}
+
+%mini-border {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    -webkit-transform-origin: left top;
+    transform-origin: left top;
+    -webkit-transform:scale(.5);
+    transform:scale(.5);
+    box-sizing:border-box;
+}
